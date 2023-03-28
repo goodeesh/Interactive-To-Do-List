@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.6.3.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="item"><br><br>   
+    <button id="add">add</button>
+    <button onclick="delete_lastelement()">Press me to delete the last element</button>
+    <br><br>
+    <button onclick="send_totheend()">Press me put the first element at the end</button>
+    <br><br>
+    <button onclick="hide_all()">Press me to hide the list</button>
+    <button onclick="show()">Press me to show the list</button>
+
+    <ol></ol>
+    <script>
+    aux = 1;
+    $(document).ready($("button").attr("title", "Click me"),);
+    function addItem() {
+        e = $("#item").val();
+        $("ol").append('<li id="'+ aux + '">'  + e + "</li>");
+        console.log("element added");
+        aux++;
+        $("#item").val("");
+    }
+    $(document).ready($("#add").on("click", addItem));
+    function delete_lastelement(){
+        last = aux-1;
+        $("#"+last).remove();
+        aux--;
+    }
+    function send_totheend(){
+        $("#1").appendTo("ol");
+    }
+    function hide_all(){
+        $("ol").fadeOut(1000);
+    }
+    function show(){
+        $("ol").fadeIn(1000);
+    }
+    </script>
+    </body>
+</html>

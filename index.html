@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.6.3.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="list">
+            <li id="fach">Webtechnologien</li>
+            <li>Web Scripting</li>
+            <li><a href="https://www.technikum-wien.at/">FHTW</a></li>
+            <li><a href="https://cis.technikum-wien.at/">CIS</a></li>
+        </ul>
+        <button onclick="delete_listelement()">Press me to delete one element</button>
+        <br><br>
+        <button onclick="send_totheend()">Press me put the first element at the end</button>
+
+        <br>
+        <script>
+            function log_them(index) {
+            console.log(index + ": " + $(this).text());
+            }
+            $(document).ready(
+            $("li").each(log_them)
+            );
+            function onReady() {
+            alert("READY TO GO!");
+            }
+            function changeText() {
+                $("#fach").text("Web Frameworks");
+            }
+            function delete_listelement(){
+                $("#fach").remove();
+            }
+            function send_totheend(){
+                $("#fach").appendTo("#list");
+            }
+
+        $(document).ready(onReady);
+        $(document).ready(changeText);
+        $(document).ready($("button").attr("title", "Click me"),);
+
+
+        </script>
+    </body>
+
+</html>
